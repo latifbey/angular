@@ -36,7 +36,7 @@ import { PromotionService } from './services/promotion.service';
     FlexLayoutModule,
     AppRoutingModule
   ],
-  providers: [PromotionService],
+  providers: [PromotionService, DishService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
