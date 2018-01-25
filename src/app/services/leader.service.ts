@@ -6,9 +6,11 @@ import { LEADERS } from '../shared/leaders';
 export class LeaderService {
 
   constructor() { }
+
   getLeaders(): Leader[] {
     return LEADERS;
   }
+
   getLeader(id: number): Leader {
     return LEADERS.filter((leader) => (leader.id === id))[0];
   }
