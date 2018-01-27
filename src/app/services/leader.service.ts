@@ -5,6 +5,7 @@ import { LEADERS } from '../shared/leaders';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/observable/of'
 
 @Injectable()
 export class LeaderService {
