@@ -7,15 +7,20 @@ export class PromotionService {
 
   constructor() { }
 
-  getDishes(): Promise<Promotion[]> {
-    return Promise.resolve(PROMOTIONS);
+  getPromotions(): Promise<Promotion[]> {
+    return new Promise(resolve=> {
+      setTimeout(() => resolve(PROMOTIONS), 2000);
+      // Simulate server latency with 2 second delay
+  });
   }
-
-  getDish(id: number): Promise<Promotion> {
-    return Promise.resolve(PROMOTIONS.filter((dish) => (dish.id === id))[0]);
+  getPromotion(id: number): Promise<Promotion> {
+    return new Promise(resolve=> {
+      setTimeout(() => resolve(PROMOTIONS.filter((dish) => (dish.id === id))[0]), 2000);
+  });
   }
-
-  getFeaturedDish(): Promise<Promotion> {
-    return Promise.resolve(PROMOTIONS.filter((dish) => dish.featured)[0]);
-  }
+  getFeaturedPromotion(): Promise<Promotion> {
+    return new Promise(resolve=> {
+      setTimeout(() => resolve(PROMOTIONS.filter((dish) => dish.featured)[0]), 2000);
+  });
+}
 }

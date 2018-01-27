@@ -1,5 +1,4 @@
-<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
- fxLayoutAlign.gt-md="space-around flex-start"
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around flex-start"
   fxLayoutGap="10px" fxLayoutGap.xs="0">
 
   <div fxFlex="50" *ngIf="dish">
@@ -30,7 +29,7 @@
         </md-card-title>
       </md-card-header>
       <md-card-content *ngIf="comments">
-        <md-list *ngFor="let comment of comments">
+        <md-list *ngFor="let comment of dish.comments">
           <md-list-item fxLayout="column" fxLayout.sm="column" fxLayout.xs="column">
             <p md-line>{{comment.comment}}</p>
             <p md-line>{{comment.rating}} Stars</p>
@@ -40,5 +39,8 @@
       </md-card-content>
     </md-card>
   </div>
-
+  <div [hidden]="dish">
+    <md-spinner></md-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
 </div>

@@ -7,15 +7,21 @@ export class LeaderService {
 
   constructor() { }
 
-  getDishes(): Promise<Leader[]> {
-    return Promise.resolve(LEADERS);
+  getLeaders(): Promise<Leader[]> {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(LEADERS), 2000);
+    });
   }
-
-  getDish(id: number): Promise<Leader> {
-    return Promise.resolve(LEADERS.filter((dish) => (dish.id === id))[0]);
+  getLeader(id: number): Promise<Leader> {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(LEADERS.filter((dish) => (dish.id === id))[0]), 2000);
+      // Simulate server latency with 2 second delay
+    });
   }
+  getFeaturedLeader(): Promise<Leader> {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(LEADERS.filter((dish) => dish.featured)[0]), 2000);
+    });
 
-  getFeaturedDish(): Promise<Leader> {
-    return Promise.resolve(LEADERS.filter((dish) => dish.featured)[0]);
   }
 }
