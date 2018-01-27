@@ -16,11 +16,11 @@ export class LeaderService {
    
   }
   getLeader(id: number): Observable<Leader> {
-    return Observable.of(LEADERS.filter((dish) => (dish.id === id))[0]).delay(2000);
+    return Observable.of(LEADERS.filter((leader) => (leader.id === id))[0]).delay(2000);
    
   }
   getFeaturedLeader(): Observable<Leader> {
-    return Observable.of(LEADERS.filter((dish) => dish.featured)[0]).delay(2000);
+    return Observable.of(LEADERS.filter((leader) => leader.featured)[0]).delay(2000);
     
 
   }

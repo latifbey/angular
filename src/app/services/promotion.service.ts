@@ -17,11 +17,11 @@ export class PromotionService {
   
   }
   getPromotion(id: number): Observable<Promotion> {
-    return Observable.of(PROMOTIONS.filter((dish) => (dish.id === id))[0]).delay(2000);
+    return Observable.of(PROMOTIONS.filter((promo) => (promo.id === id))[0]).delay(2000);
 
   }
   getFeaturedPromotion(): Observable<Promotion> {
-    return Observable.of(PROMOTIONS.filter((dish) => dish.featured)[0]).delay(2000);
+    return Observable.of(PROMOTIONS.filter((promotion) => promotion.featured)[0]).delay(2000);
   
 }
 }
