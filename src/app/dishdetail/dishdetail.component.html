@@ -13,12 +13,16 @@
         <p>{{dish.description}}</p>
       </md-card-content>
       <md-card-actions>
-        <button md-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
+        <button md-button [routerLink]="['/dishdetail', prev]">
+          <span class="fa fa-chevron-left fa-lg"></span>
+        </button>
         <button md-button (click)="goBack()">BACK</button>
         <button md-button>LIKE</button>
         <button md-button>SHARE</button>
         <span class="flex-spacer"></span>
-        <button md-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
+        <button md-button [routerLink]="['/dishdetail', next]">
+          <span class="fa fa-chevron-right fa-lg"></span>
+        </button>
       </md-card-actions>
     </md-card>
   </div>
@@ -47,3 +51,29 @@
     <h4>Loading . . . Please Wait</h4>
   </div>
 </div>
+
+<!--  
+
+  <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+ <p>
+      <md-input-container class="half-width"
+       dividerColor="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
+        <input mdInput formControlName="firstname" placeholder="First Name" type="text" required>
+        <md-hint>
+          <span [hidden]="!(formErrors.firstname)">
+            {{formErrors.firstname}}</span>
+        </md-hint>
+      </md-input-container>
+<p>
+      <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>
+</p>
+  <p>
+      <md-input-container class="full-width">
+        <textarea mdInput formControlName="message" placeholder="Your Feedback" rows=12></textarea>
+      </md-input-container>
+    </p>
+    <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
+  </form>
+  
+  
+  ->
