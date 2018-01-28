@@ -45,35 +45,32 @@
         </md-list>
       </md-card-content>
     </md-card>
-  </div>
-  <div [hidden]="dish">
-    <md-spinner></md-spinner>
-    <h4>Loading . . . Please Wait</h4>
-  </div>
-</div>
-
-<!--  
-
-  <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
- <p>
-      <md-input-container class="half-width"
-       dividerColor="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
-        <input mdInput formControlName="firstname" placeholder="First Name" type="text" required>
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <md-input-container class="half-width" dividerColor="{{(formErrors.name) ? 'warn' : 'primary'}}">
+        <input mdInput formControlName="name" placeholder="Name" type="text" required>
         <md-hint>
-          <span [hidden]="!(formErrors.firstname)">
-            {{formErrors.firstname}}</span>
+          <span [hidden]="!(formErrors.name)">
+            {{formErrors.name}}</span>
         </md-hint>
       </md-input-container>
-<p>
-      <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>
-</p>
-  <p>
-      <md-input-container class="full-width">
-        <textarea mdInput formControlName="message" placeholder="Your Feedback" rows=12></textarea>
+
+      <div layout>
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Ratings</span>
+        </div>
+        <!--  <md-slider flex md-discrete ng-model="rating1" step="5" min="1" max="5" aria-label="rating">
+              </md-slider> -->
+      </div>
+      <md-input-container class="half-width" dividerColor="{{(formErrors.lastname) ? 'warn' : 'primary'}}">
+        <textarea mdInput formControlName="lastname" placeholder="Your Comments" rows=12 type="text" required></textarea>
+        <md-hint>
+          <span [hidden]="!(formErrors.lastname)">
+            {{formErrors.lastname}}</span>
+        </md-hint>
       </md-input-container>
-    </p>
-    <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
-  </form>
-  
-  
-  ->
+      <br>
+      <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
+    </form>
+
+  </div>
+</div>
