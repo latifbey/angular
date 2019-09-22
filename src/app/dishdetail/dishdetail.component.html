@@ -1,5 +1,4 @@
-<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
- fxLayoutAlign.gt-md="space-around flex-start"
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around flex-start"
   fxLayoutGap="10px" fxLayoutGap.xs="0">
 
   <div fxFlex="50" *ngIf="dish">
@@ -14,9 +13,16 @@
         <p>{{dish.description}}</p>
       </md-card-content>
       <md-card-actions>
+        <button md-button [routerLink]="['/dishdetail', prev]">
+          <span class="fa fa-chevron-left fa-lg"></span>
+        </button>
         <button md-button (click)="goBack()">BACK</button>
         <button md-button>LIKE</button>
         <button md-button>SHARE</button>
+        <span class="flex-spacer"></span>
+        <button md-button [routerLink]="['/dishdetail', next]">
+          <span class="fa fa-chevron-right fa-lg"></span>
+        </button>
       </md-card-actions>
     </md-card>
   </div>
@@ -30,7 +36,7 @@
         </md-card-title>
       </md-card-header>
       <md-card-content *ngIf="comments">
-        <md-list *ngFor="let comment of comments">
+        <md-list *ngFor="let comment of dish.comments">
           <md-list-item fxLayout="column" fxLayout.sm="column" fxLayout.xs="column">
             <p md-line>{{comment.comment}}</p>
             <p md-line>{{comment.rating}} Stars</p>
@@ -39,6 +45,32 @@
         </md-list>
       </md-card-content>
     </md-card>
-  </div>
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <md-input-container class="half-width" dividerColor="{{(formErrors.name) ? 'warn' : 'primary'}}">
+        <input mdInput formControlName="name" placeholder="Name" type="text" required>
+        <md-hint>
+          <span [hidden]="!(formErrors.name)">
+            {{formErrors.name}}</span>
+        </md-hint>
+      </md-input-container>
 
+      <div layout>
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Ratings</span>
+        </div>
+        <!--  <md-slider flex md-discrete ng-model="rating1" step="5" min="1" max="5" aria-label="rating">
+              </md-slider> -->
+      </div>
+      <md-input-container class="half-width" dividerColor="{{(formErrors.lastname) ? 'warn' : 'primary'}}">
+        <textarea mdInput formControlName="lastname" placeholder="Your Comments" rows=12 type="text" required></textarea>
+        <md-hint>
+          <span [hidden]="!(formErrors.lastname)">
+            {{formErrors.lastname}}</span>
+        </md-hint>
+      </md-input-container>
+      <br>
+      <button type="submit" md-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
+    </form>
+
+  </div>
 </div>
